@@ -1,0 +1,306 @@
+﻿<metro:Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:metro="http://schemas.codeplex.com/elysium"
+        xmlns:params="http://schemas.codeplex.com/elysium/params" 
+        xmlns:local="clr-namespace:YangpaH"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        mc:Ignorable="d" x:Class="YangpaH.MainWindow" Height="665" Width="665" ResizeMode="CanMinimize" 
+        Background="#FFFCFCFC" Loaded="Window_Loaded_1" Closing="Window_Closing"
+        params:Design.AccentBrush="{x:Static metro:AccentBrushes.Pink}"
+        IsMainWindow="True"
+       >
+    <metro:Window.TitleBar>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" 
+             Content="?" 
+             Style="{DynamicResource {x:Static metro:Window.DefaultCaptionButtonStyleKey}}"/>
+        </Grid>
+    </metro:Window.TitleBar>
+    <Grid x:Name="MainGrid" Margin="0,0,0,13">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="140.986"/>
+            <RowDefinition Height="133*"/>
+            <RowDefinition Height="145*"/>
+            <RowDefinition Height="158*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+
+        <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="664" Background="White">
+
+            <ComboBox Height="26" HorizontalAlignment="Left" Margin="63,9,0,0" x:Name="cb_Class" VerticalAlignment="Top" Width="98" FontFamily="/yangpawar;component/#NanumGothic" BorderBrush="#FFec137f" Background="White" FontSize="13" TabIndex="1" DropDownClosed="cb_Class_DropDownClosed" />
+            <Label Content="반 선택" Height="28" HorizontalAlignment="Left" Margin="5,9,0,0" x:Name="label1" VerticalAlignment="Top" Width="55" FontFamily="/yangpawar;component/#NanumGothic" FontSize="14" Foreground="Black" Background="Transparent" />
+            <ComboBox Height="26" HorizontalAlignment="Left" Margin="264,9,0,0" x:Name="cb_Instance" VerticalAlignment="Top" Width="308" FontFamily="/yangpawar;component/#NanumGothic" BorderBrush="#ffec137f" Background="White" IsEditable="True" FontSize="13" TabIndex="2" KeyDown="cb_Instance_KeyDown" IsEnabled="False" DropDownClosed="cb_Instance_DropDownClosed" />
+            <Label Content="오늘의 수업" Height="28" HorizontalAlignment="Left" Margin="176,9,0,0" x:Name="label1_Copy" VerticalAlignment="Top" Width="88" FontFamily="/yangpawar;component/#NanumGothic" FontSize="14" Foreground="Black" Background="Transparent" />
+            <Button Content="타이머" HorizontalAlignment="Left" Margin="502,9,0,0" VerticalAlignment="Top" Width="50" Height="26" x:Name="btn_StartTimer" FontFamily="/yangpawar;component/#NanumGothic" TabIndex="3" Click="btn_StartTimer_Click" FontSize="15" Visibility="Hidden" >
+
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource DimigoColor}"/>
+                </Button.BorderBrush>
+            </Button>
+            <Button Content="추가" HorizontalAlignment="Left" Margin="578,9,0,0" VerticalAlignment="Top" Width="75" Height="26" x:Name="btn_NewInstance" FontFamily="/yangpawar;component/#NanumGothic" TabIndex="3" Click="btn_NewInstance_Click" FontSize="15">
+
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource DimigoColor}"/>
+                </Button.BorderBrush>
+            </Button>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="139" VerticalAlignment="Top" Width="664" Margin="0,40,-5,0" Grid.RowSpan="2" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120*"/>
+                <ColumnDefinition Width="129*"/>
+                <ColumnDefinition Width="310*"/>
+                <ColumnDefinition Width="85*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="130"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btn_ExportasExcel" Content="엑셀 파일로 내보내기" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="221" Height="33" FontFamily="/yangpawar;component/#NanumGothic" Grid.ColumnSpan="2" TabIndex="101" FontSize="14" Click="btn_ExportasExcel_Click"/>
+
+            <Button x:Name="btn_Setrdm" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="221" Height="33" FontFamily="/yangpawar;component/#NanumGothic" Grid.ColumnSpan="2" Content="조원 무작위 추첨하기" TabIndex="100" FontSize="14" Click="btn_Setrdm_Click"/>
+            <CheckBox x:Name="cb_Captainfixed" Content="조장 고정" HorizontalAlignment="Left" Margin="11,90,0,0" VerticalAlignment="Top" Height="16" Width="97" FontFamily="/yangpawar;component/#NanumGothic" TabIndex="102" IsChecked="True" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed"/>
+            <Button x:Name="btn_SetCaptain" Content="반 정보 수정" HorizontalAlignment="Left" Margin="112,88,0,0" VerticalAlignment="Top" Width="119" Height="40.87" FontFamily="/yangpawar;component/#NanumGothic" Grid.ColumnSpan="2" TabIndex="103" Click="btn_SetCaptain_Click" FontSize="14"/>
+            <Button Content="크게 보기" HorizontalAlignment="Left" Margin="1,91,0,0" VerticalAlignment="Top" Height="38" x:Name="btn_Info" FontFamily="/yangpawar;component/#NanumGothic" Grid.Column="3" TabIndex="105" Click="btn_Info_Click" FontSize="14" Width="75"/>
+
+            <Button Content="수업 수정" Margin="1,49,0,0" VerticalAlignment="Top" Height="38" x:Name="btn_ModifyInstance" FontFamily="/yangpawar;component/#NanumGothic" Grid.Column="3" TabIndex="104" Click="btn_ModifyInstance_Click" FontSize="14" HorizontalAlignment="Left" Width="75"/>
+
+            <CheckBox x:Name="cb_NewRandom" Content="재밌는 랜덤" HorizontalAlignment="Left" Margin="11,111,0,0" VerticalAlignment="Top" Height="16" Width="97" FontFamily="/yangpawar;component/#NanumGothic" TabIndex="102" IsChecked="True" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed"/>
+            <Button Content="양파 삭제" Margin="1,7,0,0" VerticalAlignment="Top" Height="38" x:Name="btn_DeleteYangpa" FontFamily="/yangpawar;component/#NanumGothic" Grid.Column="3" TabIndex="104" Click="btn_DeleteYangpa_Click" FontSize="14" HorizontalAlignment="Left" Width="75"/>
+
+        </Grid>
+
+        <Grid x:Name="grid_Jo" HorizontalAlignment="Left" Height="467" VerticalAlignment="Top" Width="664" Grid.Row="1" Grid.RowSpan="5" Margin="0,128,-5,-17">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="{DynamicResource DimigoBackColor}" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="32*"/>
+                <ColumnDefinition Width="33*"/>
+            </Grid.ColumnDefinitions>
+            <Grid HorizontalAlignment="Left" Height="130" Margin="9.061,10,0,0" VerticalAlignment="Top" Width="315" Grid.ColumnSpan="2">
+                <Rectangle x:Name="rectJo1" Height="130" VerticalAlignment="Top" Fill="{DynamicResource DimigoULBrush}" Stroke="{DynamicResource DimigoBrush}"/>
+                <Label x:Name="lbl_Jo1" Content="1조 홍기재, 김광재, 박인수, 박민수, 박채운, 신선종" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Width="315" Margin="0" FontSize="14" FontFamily="/yangpawar;component/#NanumGothic" BorderBrush="{DynamicResource DimigoBrush}">
+                    <Label.Background>
+                        <SolidColorBrush Color="#FFEC1E60"/>
+                    </Label.Background>
+                </Label>
+                <Label x:Name="lbl_Js1" Content="10점" HorizontalAlignment="Right" Margin="0,25,0,0" VerticalAlignment="Top" FontFamily="/yangpawar;component/#NanumGothic" HorizontalContentAlignment="Right" FontSize="14"/>
+            </Grid>
+            <Grid Grid.Column="2" HorizontalAlignment="Left" Height="130" Margin="7,10,0,0" VerticalAlignment="Top" Width="315">
+                <Rectangle x:Name="rectJo2" Height="130" VerticalAlignment="Top" Stroke="{DynamicResource DimigoBrush}" Fill="{DynamicResource DimigoULBrush}"/>
+                <Label x:Name="lbl_Jo2" Content="1 홍기재, 김광재, 박인수, 박민수, 박채운, 신선종" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="14" Margin="0" FontFamily="/yangpawar;component/#NanumGothic" Width="315">
+                    <Label.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource DimigoColor}"/>
+                    </Label.BorderBrush>
+                    <Label.Background>
+                        <SolidColorBrush Color="#FFEC1E60"/>
+                    </Label.Background>
+                </Label>
+                <Label x:Name="lbl_Js2" Content="10점" HorizontalAlignment="Right" Margin="0,25,0,0" VerticalAlignment="Top" FontFamily="/yangpawar;component/#NanumGothic" HorizontalContentAlignment="Right" FontSize="14"/>
+            </Grid>
+            <Grid Grid.Column="2" HorizontalAlignment="Left" Height="130" Margin="7,151,0,0" VerticalAlignment="Top" Width="315">
+                <Rectangle x:Name="rectJo4" Height="130" VerticalAlignment="Top" Stroke="{DynamicResource DimigoBrush}" Fill="{DynamicResource DimigoULBrush}"/>
+                <Label x:Name="lbl_Jo4" Content="1 홍기재, 김광재, 박인수, 박민수, 박채운, 신선종" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="14" Margin="0" FontFamily="/yangpawar;component/#NanumGothic" Width="315" BorderBrush="{DynamicResource DimigoBrush}">
+                    <Label.Background>
+                        <SolidColorBrush Color="#FFEC1E60"/>
+                    </Label.Background>
+                </Label>
+                <Label x:Name="lbl_Js4" Content="10점" HorizontalAlignment="Right" Margin="0,25,0,0" VerticalAlignment="Top" FontFamily="/yangpawar;component/#NanumGothic" HorizontalContentAlignment="Right" FontSize="14"/>
+            </Grid>
+            <Grid Grid.Column="2" HorizontalAlignment="Left" Height="130" Margin="7,291,0,0" VerticalAlignment="Top" Width="315">
+                <Rectangle x:Name="rectJo6" Height="130" VerticalAlignment="Top" Stroke="{DynamicResource DimigoBrush}" Fill="{DynamicResource DimigoULBrush}"/>
+                <Label x:Name="lbl_Jo6" Content="1 홍기재, 김광재, 박인수, 박민수, 박채운, 신선종" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="13" Margin="0" FontFamily="/yangpawar;component/#NanumGothic" Width="315" BorderBrush="{DynamicResource DimigoBrush}">
+                    <Label.Background>
+                        <SolidColorBrush Color="#FFEC1E60"/>
+                    </Label.Background>
+                </Label>
+                <Label x:Name="lbl_Js6" Content="10점" HorizontalAlignment="Right" Margin="0,25,0,0" VerticalAlignment="Top" FontFamily="/yangpawar;component/#NanumGothic" HorizontalContentAlignment="Right" FontSize="14"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="130" Margin="9.061,150,0,0" VerticalAlignment="Top" Width="315" Grid.ColumnSpan="2">
+                <Rectangle x:Name="rectJo3" Height="130" VerticalAlignment="Top" Fill="{DynamicResource DimigoULBrush}" Stroke="{DynamicResource DimigoBrush}"/>
+
+                <Label x:Name="lbl_Jo3" Content="1조 홍기재, 김광재, 박인수, 박민수, 박채운, 신선종" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="14" Margin="0" FontFamily="/yangpawar;component/#NanumGothic" Width="315" BorderBrush="{DynamicResource DimigoBrush}">
+                    <Label.Background>
+                        <SolidColorBrush Color="#FFEC1E60"/>
+                    </Label.Background>
+                </Label>
+                <Label x:Name="lbl_Js3" Content="10점" HorizontalAlignment="Right" Margin="0,25,0,0" VerticalAlignment="Top" FontFamily="/yangpawar;component/#NanumGothic" HorizontalContentAlignment="Right" FontSize="14"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="130" Margin="9.061,291,0,0" VerticalAlignment="Top" Width="315" Grid.ColumnSpan="2">
+                <Rectangle x:Name="rectJo5" Height="130" VerticalAlignment="Top" Fill="{DynamicResource DimigoULBrush}" HorizontalAlignment="Left" Width="315" Stroke="{DynamicResource DimigoBrush}"/>
+                <Label x:Name="lbl_Jo5" Content="1 홍기재, 김광재, 박인수, 박민수, 박채운, 신선종" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="14" Margin="0" FontFamily="/yangpawar;component/#NanumGothic" Width="315" BorderBrush="{DynamicResource DimigoBrush}">
+                    <Label.Background>
+                        <SolidColorBrush Color="#FFEC1E60"/>
+                    </Label.Background>
+                </Label>
+                <Label x:Name="lbl_Js5" Content="10점" HorizontalAlignment="Right" Margin="0,25,0,0" VerticalAlignment="Top" FontFamily="/yangpawar;component/#NanumGothic" HorizontalContentAlignment="Right" FontSize="14"/>
+            </Grid>
+            <Label x:Name="lbl_Debug" Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="191,427,0,0" VerticalAlignment="Top" Height="30" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="/yangpawar;component/#NanumGothic" FontSize="13"/>
+            <Label x:Name="lbl_Debug_Version" Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="0,427,0,0" VerticalAlignment="Top" Height="30" Width="245" VerticalContentAlignment="Center" FontFamily="/yangpawar;component/#NanumGothic" FontSize="13"/>
+            <Label Content="10기 해킹방어과 이수호" Grid.Column="2" HorizontalAlignment="Right" Margin="0,429,10,9" VerticalAlignment="Center" Height="29" Width="167" HorizontalContentAlignment="Right" FontFamily="/yangpawar;component/#NanumGothic" FontSize="13"/>
+
+        </Grid>
+        <Canvas x:Name="canv_YpHome" HorizontalAlignment="Left" Height="123" Margin="239,0,0,0" VerticalAlignment="Top" Width="316.495" Grid.Row="1"/>
+        <Canvas HorizontalAlignment="Left" Height="555" VerticalAlignment="Top" Width="664" x:Name="Canvas_Timer" OpacityMask="White" Background="{DynamicResource DimigoLBrush}" Margin="0,0,-5,0" Grid.Row="1" Grid.RowSpan="4" MouseDown="Canvas_Timer_MouseDown" Visibility="Hidden">
+            <Label x:Name="lbl_TmrDebug" Content="" Canvas.Left="420" Canvas.Top="10" Width="155" Height="92.96" FontFamily="/yangpawar;component/#NanumGothic"/>
+            <Grid Height="80" Canvas.Top="10" Width="664">
+                <Label Content="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="80" Background="{DynamicResource DimigoBrush}" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontFamily="/yangpawar;component/#NanumGothic"/>
+                <Label x:Name="lbl_Jo_b0" Content="고기완, 고기완, 고기완, 고기완, 고기완, 고기완" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="584" Background="{DynamicResource DimigoULBrush}" Margin="80,0,0,0" FontSize="27" VerticalContentAlignment="Center" FontFamily="/yangpawar;component/#NanumGothic" FontWeight="Bold"/>
+            </Grid>
+            <Grid Height="80" Canvas.Top="103" Width="664">
+                <Label Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="80" Background="{DynamicResource DimigoBrush}" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontFamily="/yangpawar;component/#NanumGothic"/>
+                <Label x:Name="lbl_Jo_b1" Content="고기완, 고기완, 고기완, 고기완, 고기완, 고기완" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="584" Background="{DynamicResource DimigoULBrush}" Margin="80,0,0,0" FontSize="27" VerticalContentAlignment="Center" FontFamily="/yangpawar;component/#NanumGothic" FontWeight="Bold"/>
+            </Grid>
+            <Grid Height="80" Canvas.Top="194" Width="664">
+                <Label Content="3" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="80" Background="{DynamicResource DimigoBrush}" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontFamily="/yangpawar;component/#NanumGothic"/>
+                <Label x:Name="lbl_Jo_b2" Content="고기완, 고기완, 고기완, 고기완, 고기완, 고기완" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="584" Background="{DynamicResource DimigoULBrush}" Margin="80,0,0,0" FontSize="27" VerticalContentAlignment="Center" FontFamily="/yangpawar;component/#NanumGothic" FontWeight="Bold"/>
+            </Grid>
+            <Grid Height="80" Canvas.Top="286" Width="664">
+                <Label Content="4" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="80" Background="{DynamicResource DimigoBrush}" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontFamily="/yangpawar;component/#NanumGothic"/>
+                <Label x:Name="lbl_Jo_b3" Content="고기완, 고기완, 고기완, 고기완, 고기완, 고기완" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="584" Background="{DynamicResource DimigoULBrush}" Margin="80,0,0,0" FontSize="27" VerticalContentAlignment="Center" FontFamily="/yangpawar;component/#NanumGothic" FontWeight="Bold"/>
+            </Grid>
+            <Grid Height="80" Canvas.Top="376" Width="664">
+                <Label Content="5" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="80" Background="{DynamicResource DimigoBrush}" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontFamily="/yangpawar;component/#NanumGothic"/>
+                <Label x:Name="lbl_Jo_b4" Content="고기완, 고기완, 고기완, 고기완, 고기완, 고기완" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="584" Background="{DynamicResource DimigoULBrush}" FontSize="27" VerticalContentAlignment="Center" FontFamily="/yangpawar;component/#NanumGothic" FontWeight="Bold" Margin="80,0,0,0"/>
+            </Grid>
+            <Grid Height="80" Canvas.Top="467" Width="664">
+                <Label Content="6" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="80" Background="{DynamicResource DimigoBrush}" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontFamily="/yangpawar;component/#NanumGothic"/>
+                <Label x:Name="lbl_Jo_b5" Content="고기완, 고기완, 고기완, 고기완, 고기완, 고기완, 고기완" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="584" Background="{DynamicResource DimigoULBrush}" FontSize="23" VerticalContentAlignment="Center" FontFamily="/yangpawar;component/#NanumGothic" FontWeight="Bold" Margin="80,0,0,0"/>
+            </Grid>
+        </Canvas>
+        <Canvas x:Name="Canvas_Info" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="664" Grid.RowSpan="6" Margin="0,1,0,-12.696" Visibility="Hidden">
+            <Canvas.Background>
+                <SolidColorBrush Color="{DynamicResource DimigoBackColor}"/>
+            </Canvas.Background>
+            <Image x:Name="Image_Info" Height="104" Width="664" Source="Images/YHI_InfoLayer.png" MouseLeftButtonUp="Image_Info_MouseLeftButtonUp"/>
+            <Label x:Name="lbl_Info_Ver" Content="Version" Canvas.Left="10" Canvas.Top="10" FontFamily="/yangpawar;component/#NanumGothic" FontSize="16"/>
+            <Grid x:Name="Constolation" Height="535" Canvas.Top="104" Width="664">
+                <Border BorderThickness="1" Margin="41,352,483,43" CornerRadius="3" Width="140" Height="140">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource DimigoDarkColor}"/>
+                    </Border.BorderBrush>
+                    <Border.Background>
+                        <SolidColorBrush Color="{DynamicResource DimigoLightColor}"/>
+                    </Border.Background>
+                </Border>
+                <Border BorderThickness="1" Margin="206,352,318,43" CornerRadius="3" Width="140" Height="140">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource DimigoDarkColor}"/>
+                    </Border.BorderBrush>
+                    <Border.Background>
+                        <SolidColorBrush Color="{DynamicResource DimigoLightColor}"/>
+                    </Border.Background>
+                </Border>
+                <Border BorderThickness="1" Margin="376,352,148,43" CornerRadius="3" Width="140" Height="140">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource DimigoDarkColor}"/>
+                    </Border.BorderBrush>
+                    <Border.Background>
+                        <SolidColorBrush Color="{DynamicResource DimigoLightColor}"/>
+                    </Border.Background>
+                </Border>
+                <Border BorderThickness="1" Margin="41,191,483,204" CornerRadius="3" Width="140" Height="140">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource DimigoDarkColor}"/>
+                    </Border.BorderBrush>
+                    <Border.Background>
+                        <SolidColorBrush Color="{DynamicResource DimigoLightColor}"/>
+                    </Border.Background>
+                </Border>
+                <Border BorderThickness="1" Margin="206,191,318,204" CornerRadius="3" Width="140" Height="140">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource DimigoDarkColor}"/>
+                    </Border.BorderBrush>
+                    <Border.Background>
+                        <SolidColorBrush Color="{DynamicResource DimigoLightColor}"/>
+                    </Border.Background>
+                </Border>
+                <Border BorderThickness="1" Margin="376,191,148,204" CornerRadius="3" Width="140" Height="140">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource DimigoDarkColor}"/>
+                    </Border.BorderBrush>
+                    <Border.Background>
+                        <SolidColorBrush Color="{DynamicResource DimigoLightColor}"/>
+                    </Border.Background>
+                </Border>
+                <Border BorderThickness="1" Margin="41,29,483,366" CornerRadius="3" Width="140" Height="140">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource DimigoDarkColor}"/>
+                    </Border.BorderBrush>
+                    <Border.Background>
+                        <SolidColorBrush Color="{DynamicResource DimigoLightColor}"/>
+                    </Border.Background>
+                </Border>
+                <Border BorderThickness="1" Margin="206,29,318,366" CornerRadius="3" Width="140" Height="140">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource DimigoDarkColor}"/>
+                    </Border.BorderBrush>
+                    <Border.Background>
+                        <SolidColorBrush Color="{DynamicResource DimigoLightColor}"/>
+                    </Border.Background>
+                </Border>
+                <Border BorderThickness="1" Margin="376,29,148,366" CornerRadius="3" Width="140" Height="140">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource DimigoDarkColor}"/>
+                    </Border.BorderBrush>
+                    <Border.Background>
+                        <SolidColorBrush Color="{DynamicResource DimigoLightColor}"/>
+                    </Border.Background>
+                </Border>
+                <Button x:Name="btn_RollCY" Content="돌리기" Margin="535,105,10,366" FontSize="20" FontFamily="/yangpawar;component/#NanumGothic"/>
+                <Label Content="최대" HorizontalAlignment="Left" Margin="535,30,0,0" VerticalAlignment="Top" FontSize="14" FontFamily="/yangpawar;component/#NanumGothic"/>
+                <Label Content="최소" HorizontalAlignment="Left" Margin="535,63,0,0" VerticalAlignment="Top" FontSize="14" FontFamily="/yangpawar;component/#NanumGothic"/>
+                <TextBox x:Name="tb_MaxCY" HorizontalAlignment="Left" Height="23" Margin="578,30,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="76" MaxLines="1" MaxLength="3"/>
+                <TextBox x:Name="tb_MinCY" HorizontalAlignment="Left" Height="23" Margin="578,63,0,0" TextWrapping="Wrap" Text="-2" VerticalAlignment="Top" Width="76" MaxLength="3" MaxLines="1"/>
+                <Grid Margin="550,191,10,43"/>
+            </Grid>
+        </Canvas>
+        <Button x:Name="btn_GiantTransparentCancel" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="644" Opacity="0" Height="178.87" Grid.RowSpan="2" Click="btn_GiantTransparentCancel_Click" FontFamily="/yangpawar;component/#NanumGothic" Visibility="Hidden"/>
+        <Canvas x:Name="Canvas_ModityInst" Margin="0,135.373,0,23.093" Grid.Row="1" Grid.RowSpan="4" Visibility="Hidden">
+            <Canvas.Background>
+                <SolidColorBrush Color="{DynamicResource DimigoColor}" Opacity="0.9"/>
+            </Canvas.Background>
+            <TextBox x:Name="tb_JoMember1" Height="23" Canvas.Left="62" Canvas.Top="6" Width="245" FontSize="13" Background="{DynamicResource DimigoULBrush}" UndoLimit="50" FontFamily="/yangpawar;component/#NanumGothic" MaxLines="1" TabIndex="100"/>
+            <TextBox x:Name="tb_JoMember2" Height="23" Canvas.Left="386" Canvas.Top="6" Width="245" FontSize="13" Background="{DynamicResource DimigoULBrush}" UndoLimit="50" FontFamily="/yangpawar;component/#NanumGothic" MaxLines="1" TabIndex="102"/>
+            <TextBox x:Name="tb_JoMember3" Height="23" Canvas.Left="62" Canvas.Top="145" Width="245" FontSize="13" Background="{DynamicResource DimigoULBrush}" UndoLimit="50" FontFamily="/yangpawar;component/#NanumGothic" MaxLines="1" TabIndex="104"/>
+            <TextBox x:Name="tb_JoMember4" Height="23" Canvas.Left="386" Canvas.Top="145" Width="245" FontSize="13" Background="{DynamicResource DimigoULBrush}" UndoLimit="50" FontFamily="/yangpawar;component/#NanumGothic" MaxLines="1" TabIndex="106"/>
+            <TextBox x:Name="tb_JoMember5" Height="23" Canvas.Left="62" Canvas.Top="284" Width="245" FontSize="13" Background="{DynamicResource DimigoULBrush}" UndoLimit="50" FontFamily="/yangpawar;component/#NanumGothic" MaxLines="1" TabIndex="108"/>
+            <TextBox x:Name="tb_JoMember6" Height="23" Canvas.Left="386" Canvas.Top="284" Width="245" FontSize="13" Background="{DynamicResource DimigoULBrush}" UndoLimit="50" FontFamily="/yangpawar;component/#NanumGothic" MaxLines="1" TabIndex="110"/>
+            <TextBox x:Name="tb_JoScore1" Height="23" Canvas.Left="62" Canvas.Top="38" Width="245" FontSize="13" Background="{DynamicResource DimigoULBrush}" UndoLimit="50" FontFamily="/yangpawar;component/#NanumGothic" MaxLines="1" TabIndex="101"/>
+            <TextBox x:Name="tb_JoScore2" Height="23" Canvas.Left="386" Canvas.Top="38" Width="245" FontSize="13" Background="{DynamicResource DimigoULBrush}" UndoLimit="50" FontFamily="/yangpawar;component/#NanumGothic" MaxLines="1" TabIndex="103"/>
+            <TextBox x:Name="tb_JoScore3" Height="23" Canvas.Left="62" Canvas.Top="177" Width="245" FontSize="13" Background="{DynamicResource DimigoULBrush}" UndoLimit="50" FontFamily="/yangpawar;component/#NanumGothic" MaxLines="1" TabIndex="105"/>
+            <TextBox x:Name="tb_JoScore4" Height="23" Canvas.Left="386" Canvas.Top="177" Width="245" FontSize="13" Background="{DynamicResource DimigoULBrush}" UndoLimit="50" FontFamily="/yangpawar;component/#NanumGothic" MaxLines="1" TabIndex="107"/>
+            <TextBox x:Name="tb_JoScore5" Height="23" Canvas.Left="62" Canvas.Top="316" Width="245" FontSize="13" Background="{DynamicResource DimigoULBrush}" UndoLimit="50" FontFamily="/yangpawar;component/#NanumGothic" MaxLines="1" TabIndex="109"/>
+            <TextBox x:Name="tb_JoScore6" Height="23" Canvas.Left="386" Canvas.Top="316" Width="245" FontSize="13" Background="{DynamicResource DimigoULBrush}" UndoLimit="50" FontFamily="/yangpawar;component/#NanumGothic" MaxLines="1" TabIndex="111"/>
+            <Label Content="1   조원" Canvas.Left="12" Canvas.Top="5" FontFamily="/yangpawar;component/#NanumGothic" Foreground="White"/>
+            <Label Content="점수" Canvas.Left="29" Canvas.Top="36" FontFamily="/yangpawar;component/#NanumGothic" Foreground="White"/>
+            <Label Content="2   조원" Canvas.Left="335" Canvas.Top="7" FontFamily="/yangpawar;component/#NanumGothic" Foreground="White"/>
+            <Label Content="점수" Canvas.Left="352" Canvas.Top="38" FontFamily="/yangpawar;component/#NanumGothic" Foreground="White"/>
+            <Label Content="3   조원" Canvas.Left="12" Canvas.Top="144" FontFamily="/yangpawar;component/#NanumGothic" Foreground="White"/>
+            <Label Content="점수" Canvas.Left="29" Canvas.Top="175" FontFamily="/yangpawar;component/#NanumGothic" Foreground="White"/>
+            <Label Content="4   조원" Canvas.Left="335" Canvas.Top="146" FontFamily="/yangpawar;component/#NanumGothic" Foreground="White"/>
+            <Label Content="점수" Canvas.Left="352" Canvas.Top="177" FontFamily="/yangpawar;component/#NanumGothic" Foreground="White"/>
+            <Label Content="5   조원" Canvas.Left="12" Canvas.Top="283" FontFamily="/yangpawar;component/#NanumGothic" Foreground="White"/>
+            <Label Content="점수" Canvas.Left="29" Canvas.Top="314" FontFamily="/yangpawar;component/#NanumGothic" Foreground="White"/>
+            <Label Content="6   조원" Canvas.Left="335" Canvas.Top="285" FontFamily="/yangpawar;component/#NanumGothic" Foreground="White"/>
+            <Label Content="점수" Canvas.Left="352" Canvas.Top="316" FontFamily="/yangpawar;component/#NanumGothic" Foreground="White"/>
+            <Label Content="(일반 양파, 빨간 양파, 썩은 양파, 돼지 양파)" Canvas.Left="62" Canvas.Top="65" Foreground="White" FontFamily="/yangpawar;component/#NanumGothic"/>
+            <Label Content="점수 입력 예시 : 3,1,0,1" Canvas.Left="62" Canvas.Top="85.96" Foreground="White" FontFamily="/yangpawar;component/#NanumGothic"/>
+            <Label Content="조원은 , (comma) 로 구분됩니다." Canvas.Left="62" Canvas.Top="107.36" Foreground="White" FontFamily="/yangpawar;component/#NanumGothic"/>
+            <Button x:Name="btn_Modify_Save" Content="수정" Canvas.Left="386" Canvas.Top="360.947" Width="115" Height="43.96" FontSize="16" FontFamily="/yangpawar;component/#NanumGothic" Click="btn_Modify_Save_Click"/>
+            <Button x:Name="btn_Modify_Delete" Content="삭제" Canvas.Left="516" Canvas.Top="360.947" Width="115" Height="43.96" FontSize="16" FontFamily="/yangpawar;component/#NanumGothic" Click="btn_Modify_Delete_Click"/>
+            <Label Content="자료 구조에 직접 접근하는 것은 매우 위험할 수 있습니다." Canvas.Left="62" Canvas.Top="380.506" Foreground="White" FontFamily="/yangpawar;component/#NanumGothic"/>
+        </Canvas>
+    </Grid>
+</metro:Window>
